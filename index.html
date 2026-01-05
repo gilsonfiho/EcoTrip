@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrip - Calculadora de Impacto Ambiental</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 EcoTrip</h1>
+            <p class="subtitle">Calculadora de Impacto Ambiental de Viagens</p>
+        </header>
+
+        <main>
+            <section class="calculator-section">
+                <h2>Calcule o Impacto da sua Viagem</h2>
+
+                <form id="tripForm">
+                    <div class="form-group">
+                        <label for="origin">Origem:</label>
+                        <input type="text" id="origin" placeholder="Ex: São Paulo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destination">Destino:</label>
+                        <input type="text" id="destination" placeholder="Ex: Rio de Janeiro" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="distance">Distância (km):</label>
+                        <input type="number" id="distance" min="1" placeholder="Ex: 450" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transport">Meio de Transporte:</label>
+                        <select id="transport" required>
+                            <option value="">Selecione...</option>
+                            <option value="car">Carro</option>
+                            <option value="bus">Ônibus</option>
+                            <option value="train">Trem</option>
+                            <option value="plane">Avião</option>
+                            <option value="bike">Bicicleta</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="passengers">Número de Passageiros:</label>
+                        <input type="number" id="passengers" min="1" value="1" required>
+                    </div>
+
+                    <button type="submit" class="btn-calculate">Calcular Impacto</button>
+                </form>
+            </section>
+
+            <section id="results" class="results-section hidden">
+                <h2>Resultado da Análise</h2>
+                <div class="result-card">
+                    <div class="result-item">
+                        <span class="label">Rota:</span>
+                        <span id="routeDisplay" class="value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Transporte:</span>
+                        <span id="transportDisplay" class="value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Distância:</span>
+                        <span id="distanceDisplay" class="value"></span>
+                    </div>
+                    <div class="result-item highlight">
+                        <span class="label">Emissões de CO₂:</span>
+                        <span id="co2Display" class="value"></span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Emissões por Pessoa:</span>
+                        <span id="co2PerPerson" class="value"></span>
+                    </div>
+                    <div class="impact-level">
+                        <span class="label">Nível de Impacto:</span>
+                        <span id="impactLevel" class="badge"></span>
+                    </div>
+                </div>
+
+                <div class="recommendations">
+                    <h3>💡 Recomendações</h3>
+                    <ul id="recommendationsList"></ul>
+                </div>
+
+                <button class="btn-new" onclick="resetCalculator()">Nova Consulta</button>
+            </section>
+
+            <section class="history-section">
+                <h2>📊 Histórico de Viagens</h2>
+                <div id="history" class="history-list"></div>
+                <button id="clearHistory" class="btn-clear" onclick="clearHistory()">Limpar Histórico</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>DIO BootCamp Copilot Challenge - EcoTrip Calculator © 2024</p>
+        </footer>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
